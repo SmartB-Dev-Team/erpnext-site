@@ -1,56 +1,92 @@
-# Project Documentation
+# <div align="center">🚀 ERPNext Installation, Migration & Backup Guide</div>
 
-<div align="center">
-  <h1>ERPNext Server Setup</h1>
-  <p>Complete guide for installation, configuration, and backup</p>
-</div>
+---
 
-<hr/>
+## <div style="color:#4CAF50;">📦 Installation (Local without Docker)</div>
 
-<h2>📦 Installation</h2>
-<ol>
-  <li>Update system packages:
-    <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
-  </li>
-  <li>Install dependencies:
-    <pre><code>sudo apt install python3-dev python3-setuptools python3-pip python3-distutils -y</code></pre>
-  </li>
-  <li>Install other required packages:
-    <pre><code>sudo apt install mariadb-server mariadb-client redis-server -y</code></pre>
-  </li>
-</ol>
+<details>
+<summary><strong>Click to expand ERPNext installation steps</strong></summary>
 
-<hr/>
+### 1️⃣ System Update & Dependencies
+```bash
+sudo apt update
+sudo apt install git python-is-python3 python3-dev python3-pip redis-server libmariadb-dev mariadb-server mariadb-client pkg-config xvfb libfontconfig wkhtmltopdf
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+nvm install 18 # if doesn't work either export to path or close and reopen ubuntu terminal
+npm install -g yarn
+```
 
-<h2>⚙️ Configuration</h2>
-<ol>
-  <li>Secure MariaDB installation:
-    <pre><code>sudo mysql_secure_installation</code></pre>
-  </li>
-  <li>Create new database user for ERPNext</li>
-  <li>Set required permissions</li>
-</ol>
+### 2️⃣ Configure MySQL/MariaDB
+```bash
+sudo mysql_secure_installation
+```
+Inside MySQL:
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'yourpassword';
+FLUSH PRIVILEGES;
+EXIT;
+```
 
-<hr/>
+### 3️⃣ Install Bench
+```bash
+pip3 install frappe-bench
+```
 
-<h2>💾 Backup Instructions</h2>
-<p>To backup changes:</p>
-<ol>
-  <li>Run (with <code>erpnext-user</code> privileges):
-    <pre><code>bench --site smartb.dev backup</code></pre>
-  </li>
-  <li>Then with <strong>root</strong> privileges run:
-    <pre><code>git add .
-git commit -am "Server Backup Date"
-git push</code></pre>
-  </li>
-</ol>
+### 4️⃣ Create Bench & Install ERPNext
+```bash
+bench init frappe-bench
+cd frappe-bench
+bench new-site smartb-erpnet.dev
+bench get-app https://github.com/frappe/erpnext
+bench --site smartb-erpnext.dev install-app erpnext
+bench start
+```
 
-<hr/>
+</details>
 
-<h2>📄 Notes</h2>
-<ul>
-  <li>Ensure all commands are run in correct user context.</li>
-  <li>Replace placeholders with actual values for your setup.</li>
-</ul>
+---
 
+## <div style="color:#2196F3;">🔄 Migration Guide</div>
+
+<details>
+<summary><strong>Click to expand migration steps</strong></summary>
+
+1. **Backup existing site on server**
+```bash
+bench --site smartb-erpnext.dev backup
+```
+
+2. **Copy backup files to new machine**
+```bash
+Get from SmartB GitHub repo
+```
+
+3. **Restore on new server**
+```bash
+bench --site smartb-erpnext.dev restore /path/to/backup.sql.gz
+```
+
+</details>
+
+---
+
+## <div style="color:#FF9800;">💾 Backup Process</div>
+
+<details open>
+<summary><strong>Click to expand backup commands</strong></summary>
+
+**Step 1:** Run with `erpnext-user` privileges:
+```bash
+bench --site smartb.dev backup
+```
+
+**Step 2:** Then with `root` privileges:
+```bash
+git add .
+git commit -am "Server Backup $(date +'%Y-%m-%d')"
+git push
+```
+
+</details>
+
+---
