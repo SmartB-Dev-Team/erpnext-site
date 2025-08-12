@@ -112,18 +112,31 @@ git push
 ```
 
 </details>
----
 
-### <div style="color:#FF9800;">Common Issues</div>
+## <div style="color:#FF9800;">Common Issues</div>
 <details open>
 <summary><strong>You may face these common issues, resolution steps are given against each</strong></summary>
 
-**Port Already in Use**
+1. **Port Already in Use**
 From terminal identify the port on which bench wants to serve the site.
 It will likely be 8000, 9000, 11000 or 13000
 After you have identified the port, run 
 ```bash
 sudo kill -9 $(sudo lsof -t -i :port-number
 ```
+
+2. **On browser, it says 'Not Found' or 'Page Not Found'**
+Run this to get you ip
+```bash
+hostname -I
+```
+Now run this within frappe-bench to link your host with site
+```bash
+ln -s smartb-erpnext.dev sites/your-ip
+```
+
+3. **Pip doesn't work**
+```bash
+use flag --break-system-packages
+``` 
 </details>
----
