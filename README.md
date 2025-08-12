@@ -88,9 +88,9 @@ Update smartb-erpnext.dev/site_config.json to
  "db_host": "159.223.43.125",
  "db_port": 3306
 }
+```
 </details>
 
-```
 
 ## <div style="color:#FF9800">Fire it up</div>
 <details>
