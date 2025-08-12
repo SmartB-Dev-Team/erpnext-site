@@ -112,5 +112,18 @@ git push
 ```
 
 </details>
+---
 
+### <div style="color:#FF9800;">Common Issues</div>
+<details open>
+<summary><strong>You may face these common issues, resolution steps are given against each</strong></summary>
+
+**Port Already in Use**
+From terminal identify the port on which bench wants to serve the site.
+It will likely be 8000, 9000, 11000 or 13000
+After you have identified the port, run 
+```bash
+sudo kill -9 $(sudo lsof -t -i :port-number
+```
+</details>
 ---
