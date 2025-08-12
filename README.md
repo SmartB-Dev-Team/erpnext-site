@@ -12,7 +12,7 @@
 sudo useradd your-username
 su - your-username
 ```
-At any time if want to swicth back to root, just run
+At any time if you want to swicth back to root, just run
 ```bash
 sudo -i
 ```
@@ -44,7 +44,7 @@ EXIT;
 ```
 
 Now restart MariaDB
-``bash
+```bash
 sudo systemctl restart mariadb
 ```
 ### 3️⃣ Install Bench
