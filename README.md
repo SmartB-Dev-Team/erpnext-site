@@ -89,7 +89,8 @@ Update smartb-erpnext.dev/site_config.json to
  "db_port": 3306
 }
 ```
-3. **After installation and configuration now you can run this command to start ERPNext on your machine, look for 'Running on ip:host', you can follow that url to access the system
+3. **Fire it up**
+After installation and configuration now you can run this command to start ERPNext on your machine, look for 'Running on ip:host', you can follow that url to access the system
 ```bash
 bench start
 ```
