@@ -59,7 +59,6 @@ cd frappe-bench
 bench new-site smartb-erpnet.dev
 bench get-app https://github.com/frappe/erpnext
 bench --site smartb-erpnext.dev install-app erpnext
-bench start
 ```
 
 </details>
@@ -89,6 +88,10 @@ Update smartb-erpnext.dev/site_config.json to
  "db_host": "159.223.43.125",
  "db_port": 3306
 }
+```
+3. **After installation and configuration now you can run this command to start ERPNext on your machine, look for 'Running on ip:host', you can follow that url to access the system
+```bash
+bench start
 ```
 </details>
 
@@ -122,7 +125,7 @@ From terminal identify the port on which bench wants to serve the site.
 It will likely be 8000, 9000, 11000 or 13000
 After you have identified the port, run 
 ```bash
-sudo kill -9 $(sudo lsof -t -i :port-number
+sudo kill -9 $(sudo lsof -t -i :port-number)
 ```
 
 ### On browser, it says 'Not Found' or 'Page Not Found'
