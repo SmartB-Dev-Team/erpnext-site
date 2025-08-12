@@ -2,7 +2,7 @@
 
 ---
 
-## <div style="color:#4CAF50;">📦 Installation (Local without Docker)</div>
+## <div style="color:#4CAF50;">📦 Installation</div>
 
 <details>
 <summary><strong>Click to expand ERPNext installation steps</strong></summary>
@@ -29,7 +29,7 @@ EXIT;
 
 ### 3️⃣ Install Bench
 ```bash
-pip3 install frappe-bench
+pip install frappe-bench
 ```
 
 ### 4️⃣ Create Bench & Install ERPNext
@@ -51,21 +51,26 @@ bench start
 <details>
 <summary><strong>Click to expand migration steps</strong></summary>
 
-1. **Backup existing site on server**
+1. **Copy backup files to new machine**
 ```bash
-bench --site smartb-erpnext.dev backup
+Get from SmartB GitHub repo (both private and public directories)
 ```
 
-2. **Copy backup files to new machine**
+2. **Configure local site to connect to server database**
+Update smartb-erpnext.dev/site_config.json to
 ```bash
-Get from SmartB GitHub repo
+{
+ "db_name": "_b7b8640a2d1b8b5c",
+ "db_password": "0W9ixoW0V8YkDPDe",
+ "db_type": "mariadb",
+ "db_user": "_b7b8640a2d1b8b5c",
+ "developer_mode": 1,
+ "db_host": "159.223.43.125",
+ "db_port": 3306
+}
 ```
 
-3. **Restore on new server**
-```bash
-bench --site smartb-erpnext.dev restore /path/to/backup.sql.gz
-```
-
+4. **Update
 </details>
 
 ---
