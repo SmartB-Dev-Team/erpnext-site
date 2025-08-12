@@ -7,6 +7,15 @@
 <details>
 <summary><strong>Click to expand ERPNext installation steps</strong></summary>
 
+### Create a new user and switch
+```bash 
+sudo useradd your-username
+su - your-username
+```
+At any time if want to swicth back to root, just run
+```bash
+sudo -i
+```
 ### 1️⃣ System Update & Dependencies
 ```bash
 sudo apt update
