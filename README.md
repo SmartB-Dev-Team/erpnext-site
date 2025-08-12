@@ -57,6 +57,7 @@ Get from SmartB GitHub repo (both private and public directories)
 ```
 
 2. **Configure local site to connect to server database**
+
 Update smartb-erpnext.dev/site_config.json to
 ```bash
 {
@@ -69,8 +70,6 @@ Update smartb-erpnext.dev/site_config.json to
  "db_port": 3306
 }
 ```
-
-4. **Update
 </details>
 
 ---
