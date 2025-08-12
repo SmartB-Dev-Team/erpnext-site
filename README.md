@@ -95,6 +95,7 @@ Update smartb-erpnext.dev/site_config.json to
 ## <div style="color:#FF9800">Fire it up</div>
 <details>
 <summary><strong>Command to start ERPNext</strong></summary>
+
 ### After installation and configuration now you can run this command to start ERPNext on your machine, look for 'Running on ip:host', you can follow that url to access the system
 
 ```bash
