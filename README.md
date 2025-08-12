@@ -20,13 +20,24 @@ npm install -g yarn
 ```bash
 sudo mysql_secure_installation
 ```
-Inside MySQL:
+If you don't know root user password for MySQL/ MariaDB
+
+Get Inside MySQL:
+```bash
+mysql -u root
+```
+
+Then reset the root password
 ```sql
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'yourpassword';
 FLUSH PRIVILEGES;
 EXIT;
 ```
 
+Now restart MariaDB
+``bash
+sudo systemctl restart mariadb
+```
 ### 3️⃣ Install Bench
 ```bash
 pip install frappe-bench
